@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Beautiful Soup - Intro - Python For Hackers SIG - 3</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Beautiful Soup - Intro";
+    var mkdocs_page_input_path = "beautiful_soup_intro.md";
+    var mkdocs_page_url = "/beautiful_soup_intro/index.html";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="icon icon-home"> Python For Hackers SIG - 3</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Python For Hackers SIG - 3</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../index.html">Home</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../license/index.html">license</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../bigger_picture/index.html">Bigger Picture</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../speakers/index.html">Speakers</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../workshop_settings/index.html">Workshop Settings</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../disclaimer/index.html">Disclaimer</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../license/index.html">About</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">HTML Basics</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../html/index.html">HTML</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Beautiful Soup</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="index.html">Beautiful Soup - Intro</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#beautiful-soup-documentation">Beautiful Soup Documentation</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#making-the-soup">Making the soup</a></li>
+        
+            <li><a class="toctree-l4" href="#kinds-of-objects">Kinds of objects</a></li>
+        
+            <li><a class="toctree-l4" href="#tag">Tag</a></li>
+        
+            <li><a class="toctree-l4" href="#navigablestring">NavigableString</a></li>
+        
+            <li><a class="toctree-l4" href="#beautifulsoup">BeautifulSoup</a></li>
+        
+            <li><a class="toctree-l4" href="#comments-and-other-special-strings">Comments and other special strings</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../navigating_the_tree/index.html">Navigating The Tree</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../searching_the_tree/index.html">Searching The Tree</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Selenium</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../getting_started/index.html">Getting Started</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../navigating/index.html">Navigating</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../locating_elements/index.html">Locating Elements</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Python For Hackers SIG - 3</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Beautiful Soup &raquo;</li>
+        
+      
+    
+    <li>Beautiful Soup - Intro</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="beautiful-soup-documentation">Beautiful Soup Documentation</h1>
+<p>Beautiful Soup is a Python library for pulling data out of HTML and XML files. It works with your favorite parser to provide idiomatic ways of navigating, searching, and modifying the parse tree. It commonly saves programmers hours or days of work.</p>
+<p>There's a <strong>HTML document</strong>, We’ll be using that as an example throughout this session.</p>
+<pre><code>&quot;&quot;&quot;
+&lt;html&gt;&lt;head&gt;&lt;title&gt;The Dormouse's story&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;p class=&quot;title&quot;&gt;&lt;b&gt;The Dormouse's story&lt;/b&gt;&lt;/p&gt;
+
+&lt;p class=&quot;story&quot;&gt;Once upon a time there were three little sisters; and their names were
+&lt;a href=&quot;http://example.com/elsie&quot; class=&quot;sister&quot; id=&quot;link1&quot;&gt;Elsie&lt;/a&gt;,
+&lt;a href=&quot;http://example.com/lacie&quot; class=&quot;sister&quot; id=&quot;link2&quot;&gt;Lacie&lt;/a&gt; and
+&lt;a href=&quot;http://example.com/tillie&quot; class=&quot;sister&quot; id=&quot;link3&quot;&gt;Tillie&lt;/a&gt;;
+and they lived at the bottom of a well.&lt;/p&gt;
+
+&lt;p class=&quot;story&quot;&gt;...&lt;/p&gt;
+&quot;&quot;&quot;
+</code></pre>
+
+<p>Running the “three sisters” document through Beautiful Soup gives us a BeautifulSoup object, which represents the document as a nested data structure:</p>
+<pre><code>from BeautifulSoup import *
+soup = BeautifulSoup(html_doc, 'html.parser')
+
+print(soup.prettify())
+# &lt;html&gt;
+#  &lt;head&gt;
+#   &lt;title&gt;
+#    The Dormouse's story
+#   &lt;/title&gt;
+#  &lt;/head&gt;
+#  &lt;body&gt;
+#   &lt;p class=&quot;title&quot;&gt;
+#    &lt;b&gt;
+#     The Dormouse's story
+#    &lt;/b&gt;
+#   &lt;/p&gt;
+#   &lt;p class=&quot;story&quot;&gt;
+#    Once upon a time there were three little sisters; and their names were
+#    &lt;a class=&quot;sister&quot; href=&quot;http://example.com/elsie&quot; id=&quot;link1&quot;&gt;
+#     Elsie
+#    &lt;/a&gt;
+#    ,
+#    &lt;a class=&quot;sister&quot; href=&quot;http://example.com/lacie&quot; id=&quot;link2&quot;&gt;
+#     Lacie
+#    &lt;/a&gt;
+#    and
+#    &lt;a class=&quot;sister&quot; href=&quot;http://example.com/tillie&quot; id=&quot;link2&quot;&gt;
+#     Tillie
+#    &lt;/a&gt;
+#    ; and they lived at the bottom of a well.
+#   &lt;/p&gt;
+#   &lt;p class=&quot;story&quot;&gt;
+#    ...
+#   &lt;/p&gt;
+#  &lt;/body&gt;
+# &lt;/html&gt;
+</code></pre>
+
+<h2 id="making-the-soup">Making the soup</h2>
+<p>To parse a document, pass it into the <code>BeautifulSoup</code> constructor. You can pass in a <code>string</code> or an open <code>filehandle</code>:</p>
+<pre><code>from BeautifulSoup import *
+
+with open(&quot;index.html&quot;) as fp:
+    soup = BeautifulSoup(fp) #1
+
+soup = BeautifulSoup(&quot;&lt;html&gt;data&lt;/html&gt;&quot;) #2
+</code></pre>
+
+<p>First, the document is converted to <code>Unicode</code>, and HTML entities are converted to Unicode characters:</p>
+<pre><code>BeautifulSoup(&quot;Sacr&amp;eacute; bleu!&quot;)
+&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;Sacré bleu!&lt;/body&gt;&lt;/html&gt;
+</code></pre>
+
+<p>Beautiful Soup then parses the document using the best available parser. It will use an HTML parser unless you specifically tell it to use an XML parser.</p>
+<h2 id="kinds-of-objects">Kinds of objects</h2>
+<p>Beautiful Soup transforms a complex HTML document into a complex tree of Python objects. But you’ll only ever have to deal with about four kinds of objects: <code>Tag</code>,<code>NavigableString</code>, <code>BeautifulSoup,</code> and <code>Comment</code>.</p>
+<h2 id="tag"><code>Tag</code></h2>
+<p>A <code>Tag</code> object corresponds to an XML or HTML tag in the original document:</p>
+<pre><code>soup = BeautifulSoup('&lt;b class=&quot;boldest&quot;&gt;Extremely bold&lt;/b&gt;')
+tag = soup.b
+type(tag)
+</code></pre>
+
+<h3 id="name">Name</h3>
+<p>Every tag has a name, accessible as <code>.name</code>:</p>
+<pre><code>tag.name
+# u'b'
+</code></pre>
+
+<p>If you change a tag’s name, the change will be reflected in any HTML markup generated by Beautiful Soup:</p>
+<pre><code>tag.name = &quot;blockquote&quot;
+tag
+# &lt;blockquote class=&quot;boldest&quot;&gt;Extremely bold&lt;/blockquote&gt;
+</code></pre>
+
+<h3 id="attributes">Attributes</h3>
+<p>A tag may have any number of attributes. The tag <code>&lt;b id="boldest"&gt;</code> has an attribute “id” whose value is “boldest”. You can access a tag’s attributes by treating the tag like a dictionary:</p>
+<pre><code>tag['id']
+# u'boldest'
+</code></pre>
+
+<p>You can access that dictionary directly as <code>.attrs</code>:</p>
+<pre><code>tag.attrs
+# {u'id': 'boldest'}
+</code></pre>
+
+<p>You can add, remove, and modify a tag’s attributes. Again, this is done by treating the tag as a dictionary:</p>
+<pre><code>tag['id'] = 'verybold'
+tag['another-attribute'] = 1
+tag
+# &lt;b another-attribute=&quot;1&quot; id=&quot;verybold&quot;&gt;&lt;/b&gt;
+
+del tag['id']
+del tag['another-attribute']
+tag
+# &lt;b&gt;&lt;/b&gt;
+
+tag['id']
+# KeyError: 'id'
+print(tag.get('id'))
+# None
+</code></pre>
+
+<h3 id="multi-valued-attributes">Multi-valued attributes</h3>
+<p>HTML 4 defines a few attributes that can have multiple values. HTML 5 removes a couple of them, but defines a few more. The most common multi-valued attribute is <code>class</code> (that is, a tag can have more than one CSS class). Others include <code>rel</code>, <code>rev</code>, <code>accept-charset</code>, <code>headers</code>, and <code>accesskey</code>. Beautiful Soup presents the value(s) of a multi-valued attribute as a list:</p>
+<pre><code>css_soup = BeautifulSoup('&lt;p class=&quot;body&quot;&gt;&lt;/p&gt;')
+css_soup.p['class']
+# [&quot;body&quot;]
+
+css_soup = BeautifulSoup('&lt;p class=&quot;body strikeout&quot;&gt;&lt;/p&gt;')
+css_soup.p['class']
+# [&quot;body&quot;, &quot;strikeout&quot;]
+</code></pre>
+
+<p>You can also use <code>get_attribute_list</code> to get a value that’s always a list, string, whether or not it’s a multi-valued attribute.</p>
+<p>If you parse a document as XML, there are no multi-valued attributes:</p>
+<pre><code>xml_soup = BeautifulSoup('&lt;p class=&quot;body strikeout&quot;&gt;&lt;/p&gt;', 'xml')
+xml_soup.p['class']
+# u'body strikeout'
+</code></pre>
+
+<h2 id="navigablestring"><code>NavigableString</code></h2>
+<p>A string corresponds to a bit of text within a tag. Beautiful Soup uses the <code>NavigableString</code> class to contain these bits of text:</p>
+<pre><code>tag.string
+# u'Extremely bold'
+type(tag.string)
+# &lt;class 'bs4.element.NavigableString'&gt;
+</code></pre>
+
+<p>A <code>NavigableString</code> is just like a Python Unicode string.</p>
+<p>You <strong>can’t</strong> edit a string in place, but you can replace one string with another, using <u>replace_with()</u>:</p>
+<pre><code>tag.string.replace_with(&quot;No longer bold&quot;)
+tag
+# &lt;blockquote&gt;No longer bold&lt;/blockquote&gt;
+</code></pre>
+
+<p><strong>Note</strong>:
+If you want to use a <code>NavigableString</code> outside of Beautiful Soup, you should call unicode() on it to turn it into a normal Python Unicode string. If you don’t, your string will carry around a reference to the entire Beautiful Soup parse tree, even when you’re done using Beautiful Soup. This is a big waste of memory.</p>
+<h2 id="beautifulsoup"><code>BeautifulSoup</code></h2>
+<p>The <code>BeautifulSoup</code> object itself represents the document as a whole. For most purposes, you can treat it as a Tag object.</p>
+<p>Since the <code>BeautifulSoup</code> object doesn’t correspond to an actual HTML or XML tag, it has no name and no attributes. But sometimes it’s useful to look at its <code>.name</code>, so it’s been given the special <code>.name</code> “[document]”:</p>
+<pre><code>soup.name
+# u'[document]'
+</code></pre>
+
+<h2 id="comments-and-other-special-strings">Comments and other special strings</h2>
+<p><code>Tag</code>, <code>NavigableString</code>, and <code>BeautifulSoup</code> cover almost everything you’ll see in an HTML or XML file, but there are a few leftover bits. The only one you’ll probably ever need to worry about is the comment:</p>
+<pre><code>markup = &quot;&lt;b&gt;&lt;!--Hey, buddy. Want to buy a used parser?--&gt;&lt;/b&gt;&quot;
+soup = BeautifulSoup(markup)
+comment = soup.b.string
+type(comment)
+# &lt;class 'bs4.element.Comment'&gt;
+</code></pre>
+
+<p>The <code>Comment</code> object is just a special type of <code>NavigableString</code>:</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../navigating_the_tree/index.html" class="btn btn-neutral float-right" title="Navigating The Tree">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../html/index.html" class="btn btn-neutral" title="HTML"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../html/index.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../navigating_the_tree/index.html" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../js/theme.js"></script>
+
+</body>
+</html>

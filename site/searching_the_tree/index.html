@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Searching The Tree - Python For Hackers SIG - 3</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Searching The Tree";
+    var mkdocs_page_input_path = "searching_the_tree.md";
+    var mkdocs_page_url = "/searching_the_tree/index.html";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="icon icon-home"> Python For Hackers SIG - 3</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Python For Hackers SIG - 3</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../index.html">Home</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../license/index.html">license</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../bigger_picture/index.html">Bigger Picture</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../speakers/index.html">Speakers</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../workshop_settings/index.html">Workshop Settings</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../disclaimer/index.html">Disclaimer</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../license/index.html">About</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">HTML Basics</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../html/index.html">HTML</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Beautiful Soup</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../beautiful_soup_intro/index.html">Beautiful Soup - Intro</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../navigating_the_tree/index.html">Navigating The Tree</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="index.html">Searching The Tree</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#searching-the-tree">Searching The Tree</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#kinds-of-filters">Kinds of filters</a></li>
+        
+            <li><a class="toctree-l4" href="#true">True</a></li>
+        
+            <li><a class="toctree-l4" href="#find_all">find_all()</a></li>
+        
+            <li><a class="toctree-l4" href="#searching-by-css-class">Searching by CSS class</a></li>
+        
+            <li><a class="toctree-l4" href="#find">find()</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Selenium</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../getting_started/index.html">Getting Started</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../navigating/index.html">Navigating</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../locating_elements/index.html">Locating Elements</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Python For Hackers SIG - 3</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Beautiful Soup &raquo;</li>
+        
+      
+    
+    <li>Searching The Tree</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="searching-the-tree">Searching The Tree</h1>
+<p>Beautiful Soup defines a lot of methods for searching the parse tree, but they’re all very similar. I’m going to spend a lot of time explaining the two most popular methods: find() and find_all().</p>
+<h2 id="kinds-of-filters">Kinds of filters</h2>
+<p>We can use these filters to filter based on a <code>tag</code>’s name, on its <code>attributes</code>, on the <code>text</code> of a string, or on some <code>combination</code> of these.</p>
+<h3 id="a-string">A string</h3>
+<p>The simplest filter is a string. Pass a string to a search method and Beautiful Soup will perform a match against that exact string. This code finds all the <code>&lt;b&gt;</code> tags in the document:</p>
+<pre><code>soup.find_all('b')
+# [&lt;b&gt;The Dormouse's story&lt;/b&gt;]
+</code></pre>
+
+<p><strong>Note</strong>:If you pass in a byte string, Beautiful Soup will assume the string is encoded as UTF-8. You can avoid this by passing in a Unicode string instead.</p>
+<h3 id="a-regular-expression">A regular expression</h3>
+<p>If you pass in a regular expression object, Beautiful Soup will filter against that regular expression using its <code>search()</code> method. This code finds all the tags whose names start with the letter “b”; in this case, the <code>&lt;body&gt;</code> tag and the <code>&lt;b&gt;</code> tag:</p>
+<pre><code>import re
+for tag in soup.find_all(re.compile(&quot;^b&quot;)):
+    print(tag.name)
+# body
+# b
+</code></pre>
+
+<p>This code finds all the tags whose names contain the letter ‘t’:</p>
+<pre><code>for tag in soup.find_all(re.compile(&quot;t&quot;)):
+    print(tag.name)
+# html
+# title
+</code></pre>
+
+<h3 id="a-list">A list</h3>
+<p>If you pass in a list, Beautiful Soup will allow a string match against any item in that list. This code finds all the <code>&lt;a&gt;</code> tags and all the <code>&lt;b&gt;</code> tags:</p>
+<pre><code>soup.find_all([&quot;a&quot;, &quot;b&quot;])
+# [&lt;b&gt;The Dormouse's story&lt;/b&gt;,
+#  &lt;a class=&quot;sister&quot; href=&quot;http://example.com/elsie&quot; id=&quot;link1&quot;&gt;Elsie&lt;/a&gt;,
+#  &lt;a class=&quot;sister&quot; href=&quot;http://example.com/lacie&quot; id=&quot;link2&quot;&gt;Lacie&lt;/a&gt;,
+#  &lt;a class=&quot;sister&quot; href=&quot;http://example.com/tillie&quot; id=&quot;link3&quot;&gt;Tillie&lt;/a&gt;]
+</code></pre>
+
+<h2 id="true"><code>True</code></h2>
+<p>The value <code>True</code> matches everything it can. This code finds all the tags in the document, but none of the text strings:</p>
+<pre><code>for tag in soup.find_all(True):
+    print(tag.name)
+# html
+# head
+# title
+# body
+# p
+# b
+# p
+# a
+# a
+# a
+# p
+</code></pre>
+
+<h3 id="a-function">A function</h3>
+<p>If none of the other matches work for you, define a function that takes an element as its only argument. The function should return <code>True</code> if the argument matches, and <code>False</code> otherwise.
+Here’s a function that returns <code>True</code> if a tag defines the “class” attribute but doesn’t define the “id” attribute:</p>
+<pre><code>def has_class_but_no_id(tag):
+    return tag.has_attr('class') and not tag.has_attr('id')
+</code></pre>
+
+<p>On passing this function into find_all() and we’ll pick up all the <p> tags:</p>
+<pre><code>soup.find_all(has_class_but_no_id)
+# [&lt;p class=&quot;title&quot;&gt;&lt;b&gt;The Dormouse's story&lt;/b&gt;&lt;/p&gt;,
+#  &lt;p class=&quot;story&quot;&gt;Once upon a time there were...&lt;/p&gt;,
+#  &lt;p class=&quot;story&quot;&gt;...&lt;/p&gt;]
+</code></pre>
+
+<p>This function only picks up the <code>&lt;p&gt;</code> tags. It doesn’t pick up the <code>&lt;a&gt;</code> tags, because those tags define both “class” and “id”. It doesn’t pick up tags like <code>&lt;html&gt;</code> and <code>&lt;title&gt;</code>, because those tags don’t define “class”.</p>
+<h2 id="find_all"><code>find_all()</code></h2>
+<p>The <code>find_all()</code> method looks through a tag’s descendants and retrieves all descendants that match your filters.</p>
+<pre><code>soup.find_all(&quot;title&quot;)
+# [&lt;title&gt;The Dormouse's story&lt;/title&gt;]
+
+soup.find_all(&quot;p&quot;, &quot;title&quot;)
+# [&lt;p class=&quot;title&quot;&gt;&lt;b&gt;The Dormouse's story&lt;/b&gt;&lt;/p&gt;]
+
+soup.find_all(&quot;a&quot;)
+# [&lt;a class=&quot;sister&quot; href=&quot;http://example.com/elsie&quot; id=&quot;link1&quot;&gt;Elsie&lt;/a&gt;,
+#  &lt;a class=&quot;sister&quot; href=&quot;http://example.com/lacie&quot; id=&quot;link2&quot;&gt;Lacie&lt;/a&gt;,
+#  &lt;a class=&quot;sister&quot; href=&quot;http://example.com/tillie&quot; id=&quot;link3&quot;&gt;Tillie&lt;/a&gt;]
+
+soup.find_all(id=&quot;link2&quot;)
+# [&lt;a class=&quot;sister&quot; href=&quot;http://example.com/lacie&quot; id=&quot;link2&quot;&gt;Lacie&lt;/a&gt;]
+
+import re
+soup.find(string=re.compile(&quot;sisters&quot;))
+# u'Once upon a time there were three little sisters; and their names were\n'
+</code></pre>
+
+<h3 id="the-name-argument">The <code>name</code> argument</h3>
+<p>Pass in a value for <code>name</code>and you’ll tell Beautiful Soup to only consider tags with certain names. Text strings will be ignored, as will tags whose names that don’t match.</p>
+<p>This is the simplest usage:</p>
+<pre><code>soup.find_all(&quot;title&quot;)
+# [&lt;title&gt;The Dormouse's story&lt;/title&gt;]
+</code></pre>
+
+<h3 id="the-keyword-arguments">The keyword arguments</h3>
+<p>Any argument that’s not recognized will be turned into a filter on one of a tag’s attributes. If you pass in a value for an argument called <code>id</code>, Beautiful Soup will filter against each tag’s ‘id’ attribute:</p>
+<pre><code>soup.find_all(id='link2')
+# [&lt;a class=&quot;sister&quot; href=&quot;http://example.com/lacie&quot; id=&quot;link2&quot;&gt;Lacie&lt;/a&gt;]
+</code></pre>
+
+<p>If you pass in a value for <code>href</code>, Beautiful Soup will filter against each tag’s ‘href’ attribute:</p>
+<pre><code>soup.find_all(href=re.compile(&quot;elsie&quot;))
+# [&lt;a class=&quot;sister&quot; href=&quot;http://example.com/elsie&quot; id=&quot;link1&quot;&gt;Elsie&lt;/a&gt;]
+</code></pre>
+
+<p>This code finds all tags whose <code>id</code> attribute has a value, regardless of what the value is:</p>
+<pre><code>soup.find_all(id=True)
+# [&lt;a class=&quot;sister&quot; href=&quot;http://example.com/elsie&quot; id=&quot;link1&quot;&gt;Elsie&lt;/a&gt;,
+#  &lt;a class=&quot;sister&quot; href=&quot;http://example.com/lacie&quot; id=&quot;link2&quot;&gt;Lacie&lt;/a&gt;,
+#  &lt;a class=&quot;sister&quot; href=&quot;http://example.com/tillie&quot; id=&quot;link3&quot;&gt;Tillie&lt;/a&gt;]
+</code></pre>
+
+<p>You can filter multiple attributes at once by passing in more than one keyword argument:</p>
+<pre><code>soup.find_all(href=re.compile(&quot;elsie&quot;), id='link1')
+# [&lt;a class=&quot;sister&quot; href=&quot;http://example.com/elsie&quot; id=&quot;link1&quot;&gt;three&lt;/a&gt;]
+</code></pre>
+
+<h2 id="searching-by-css-class">Searching by CSS class</h2>
+<p>It’s very useful to search for a tag that has a certain CSS class, but the name of the CSS attribute, “class”, is a reserved word in Python.</p>
+<pre><code>soup.find_all(&quot;a&quot;, class=&quot;sister&quot;)
+# [&lt;a class=&quot;sister&quot; href=&quot;http://example.com/elsie&quot; id=&quot;link1&quot;&gt;Elsie&lt;/a&gt;,
+#  &lt;a class=&quot;sister&quot; href=&quot;http://example.com/lacie&quot; id=&quot;link2&quot;&gt;Lacie&lt;/a&gt;,
+#  &lt;a class=&quot;sister&quot; href=&quot;http://example.com/tillie&quot; id=&quot;link3&quot;&gt;Tillie&lt;/a&gt;]
+</code></pre>
+
+<p>As with any keyword argument, you can pass <code>class</code> a string, a regular expression, a function, or <code>True</code>:</p>
+<pre><code>soup.find_all(class_=re.compile(&quot;itl&quot;))
+# [&lt;p class=&quot;title&quot;&gt;&lt;b&gt;The Dormouse's story&lt;/b&gt;&lt;/p&gt;]
+
+def has_six_characters(css_class):
+    return css_class is not None and len(css_class) == 6
+
+soup.find_all(class_=has_six_characters)
+# [&lt;a class=&quot;sister&quot; href=&quot;http://example.com/elsie&quot; id=&quot;link1&quot;&gt;Elsie&lt;/a&gt;,
+#  &lt;a class=&quot;sister&quot; href=&quot;http://example.com/lacie&quot; id=&quot;link2&quot;&gt;Lacie&lt;/a&gt;,
+#  &lt;a class=&quot;sister&quot; href=&quot;http://example.com/tillie&quot; id=&quot;link3&quot;&gt;Tillie&lt;/a&gt;]
+</code></pre>
+
+<h3 id="the-string-argument">The <code>string</code> argument</h3>
+<p>With string you can search for strings instead of tags. As with name and the keyword arguments, you can pass in a string, a regular expression, a list, a function, or the value True. Here are some examples:</p>
+<pre><code>soup.find_all(string=&quot;Elsie&quot;)
+# [u'Elsie']
+
+soup.find_all(string=[&quot;Tillie&quot;, &quot;Elsie&quot;, &quot;Lacie&quot;])
+# [u'Elsie', u'Lacie', u'Tillie']
+
+soup.find_all(string=re.compile(&quot;Dormouse&quot;))
+[u&quot;The Dormouse's story&quot;, u&quot;The Dormouse's story&quot;]
+
+def is_the_only_string_within_a_tag(s):
+    &quot;&quot;&quot;Return True if this string is the only child of its parent tag.&quot;&quot;&quot;
+    return (s == s.parent.string)
+
+soup.find_all(string=is_the_only_string_within_a_tag)
+# [u&quot;The Dormouse's story&quot;, u&quot;The Dormouse's story&quot;, u'Elsie', u'Lacie', u'Tillie', u'...']
+</code></pre>
+
+<p>Although string is for finding strings, you can combine it with arguments that find tags: Beautiful Soup will find all tags whose .string matches your value for string. This code finds the <code>&lt;a&gt;</code> tags whose .string is “Elsie”:</p>
+<pre><code>soup.find_all(&quot;a&quot;, string=&quot;Elsie&quot;)
+# [&lt;a href=&quot;http://example.com/elsie&quot; class=&quot;sister&quot; id=&quot;link1&quot;&gt;Elsie&lt;/a&gt;]
+</code></pre>
+
+<h3 id="the-limit-argument">The <code>limit</code> argument</h3>
+<p><code>find_all()</code> returns all the tags and strings that match your filters. This can take a while if the document is large. If you don’t need all the results, you can pass in a number for limit. This works just like the LIMIT keyword in SQL. It tells Beautiful Soup to stop gathering results after it’s found a certain number.</p>
+<p>There are three links in the “three sisters” document, but this code only finds the first two:</p>
+<pre><code>soup.find_all(&quot;a&quot;, limit=2)
+# [&lt;a class=&quot;sister&quot; href=&quot;http://example.com/elsie&quot; id=&quot;link1&quot;&gt;Elsie&lt;/a&gt;,
+#  &lt;a class=&quot;sister&quot; href=&quot;http://example.com/lacie&quot; id=&quot;link2&quot;&gt;Lacie&lt;/a&gt;]
+</code></pre>
+
+<h2 id="find"><code>find()</code></h2>
+<p>Signature: find(name, attrs, recursive, string, <code>**kwargs</code>)</p>
+<p>The <code>find_all()</code> method scans the entire document looking for results, but sometimes you only want to find one result. If you know a document only has one <code>&lt;body&gt;</code> tag, it’s a waste of time to scan the entire document looking for more. Rather than passing in <code>limit=1</code> every time you call <code>find_all</code>, you can use the <code>find()</code> method. These two lines of code are nearly equivalent:</p>
+<pre><code>soup.find_all('title', limit=1)
+# [&lt;title&gt;The Dormouse's story&lt;/title&gt;]
+
+soup.find('title')
+# &lt;title&gt;The Dormouse's story&lt;/title&gt;
+</code></pre>
+
+<p>The only difference is that <code>find_all()</code> returns a list containing the single result, and <code>find()</code> just returns the result.</p>
+<p>If <code>find_all()</code> can’t find anything, it returns an empty list. If <code>find()</code> can’t find anything, it returns <strong><code>None</code></strong>:</p>
+<pre><code>print(soup.find(&quot;nosuchtag&quot;))
+# None
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../getting_started/index.html" class="btn btn-neutral float-right" title="Getting Started">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../navigating_the_tree/index.html" class="btn btn-neutral" title="Navigating The Tree"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../navigating_the_tree/index.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../getting_started/index.html" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../js/theme.js"></script>
+
+</body>
+</html>

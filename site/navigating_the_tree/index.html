@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Navigating The Tree - Python For Hackers SIG - 3</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Navigating The Tree";
+    var mkdocs_page_input_path = "navigating_the_tree.md";
+    var mkdocs_page_url = "/navigating_the_tree/index.html";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="icon icon-home"> Python For Hackers SIG - 3</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Python For Hackers SIG - 3</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../index.html">Home</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../license/index.html">license</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../bigger_picture/index.html">Bigger Picture</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../speakers/index.html">Speakers</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../workshop_settings/index.html">Workshop Settings</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../disclaimer/index.html">Disclaimer</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../license/index.html">About</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">HTML Basics</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../html/index.html">HTML</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Beautiful Soup</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../beautiful_soup_intro/index.html">Beautiful Soup - Intro</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="index.html">Navigating The Tree</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#navigating-the-tree">Navigating the tree</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#going-down">Going down</a></li>
+        
+            <li><a class="toctree-l4" href="#navigating-using-tag-names">Navigating using tag names</a></li>
+        
+            <li><a class="toctree-l4" href="#contents-and-children">.contents and .children</a></li>
+        
+            <li><a class="toctree-l4" href="#descendants">.descendants</a></li>
+        
+            <li><a class="toctree-l4" href="#string">.string</a></li>
+        
+            <li><a class="toctree-l4" href="#strings-and-stripped_strings">.strings and stripped_strings</a></li>
+        
+            <li><a class="toctree-l4" href="#going-up">Going up</a></li>
+        
+            <li><a class="toctree-l4" href="#going-sideways">Going sideways</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../searching_the_tree/index.html">Searching The Tree</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Selenium</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../getting_started/index.html">Getting Started</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../navigating/index.html">Navigating</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../locating_elements/index.html">Locating Elements</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Python For Hackers SIG - 3</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Beautiful Soup &raquo;</li>
+        
+      
+    
+    <li>Navigating The Tree</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="navigating-the-tree">Navigating the tree</h1>
+<h2 id="going-down">Going down</h2>
+<p>Tags may contain strings and other tags. These elements are the tag’s children. Beautiful Soup provides a lot of different attributes for navigating and iterating over a tag’s children.</p>
+<p>Note that Beautiful Soup strings don’t support any of these attributes, because a string can’t have children.</p>
+<h2 id="navigating-using-tag-names">Navigating using tag names</h2>
+<p>The simplest way to navigate the parse tree is to say the name of the tag you want. If you want the <code>&lt;head&gt;</code> tag, just say <code>soup.head</code>:</p>
+<pre><code>soup.head
+# &lt;head&gt;&lt;title&gt;The Dormouse's story&lt;/title&gt;&lt;/head&gt;
+
+soup.title
+# &lt;title&gt;The Dormouse's story&lt;/title&gt;
+</code></pre>
+
+<p>You can do use this trick again and again to zoom in on a certain part of the parse tree. This code gets the first <code>&lt;b&gt;</code> tag beneath the <code>&lt;body&gt;</code> tag:</p>
+<pre><code>soup.body.b
+# &lt;b&gt;The Dormouse's story&lt;/b&gt;
+</code></pre>
+
+<p>Using a tag name as an attribute will give you only the <code>first</code> tag by that name:</p>
+<pre><code>soup.a
+# &lt;a class=&quot;sister&quot; href=&quot;http://example.com/elsie&quot; id=&quot;link1&quot;&gt;Elsie&lt;/a&gt;
+</code></pre>
+
+<h2 id="contents-and-children"><code>.contents</code> and <code>.children</code></h2>
+<p>A tag’s children are available in a list called <code>.contents</code>:</p>
+<pre><code>head_tag = soup.head
+head_tag
+# &lt;head&gt;&lt;title&gt;The Dormouse's story&lt;/title&gt;&lt;/head&gt;
+
+head_tag.contents
+[&lt;title&gt;The Dormouse's story&lt;/title&gt;]
+
+title_tag = head_tag.contents[0]
+title_tag
+# &lt;title&gt;The Dormouse's story&lt;/title&gt;
+title_tag.contents
+# [u'The Dormouse's story']
+</code></pre>
+
+<p>The <code>BeautifulSoup</code> object itself has children. In this case, the <code>&lt;html&gt;</code> tag is the child of the BeautifulSoup object.:</p>
+<pre><code>len(soup.contents)
+# 1
+soup.contents[0].name
+# u'html'
+</code></pre>
+
+<p>Instead of getting them as a list, you can iterate over a tag’s children using the <code>.children</code> generator:</p>
+<pre><code>for child in title_tag.children:
+    print(child)
+# The Dormouse's story
+</code></pre>
+
+<h2 id="descendants"><code>.descendants</code></h2>
+<p>The <code>.contents</code> and <code>.children</code> attributes only consider a tag’s <code>direct</code> children. For instance, the <code>&lt;head&gt;</code> tag has a single direct child–the <code>&lt;title&gt;</code> tag:</p>
+<pre><code>head_tag.contents
+# [&lt;title&gt;The Dormouse's story&lt;/title&gt;]
+</code></pre>
+
+<p>But the <code>&lt;title&gt;</code> tag itself has a child: the string “The Dormouse’s story”. There’s a sense in which that string is also a child of the <code>&lt;head&gt;</code> tag. The <code>.descendants</code> attribute lets you iterate over all of a tag’s children, recursively: its direct children, the children of its direct children, and so on:</p>
+<pre><code>for child in head_tag.descendants:
+    print(child)
+# &lt;title&gt;The Dormouse's story&lt;/title&gt;
+# The Dormouse's story
+</code></pre>
+
+<p>The <code>&lt;head&gt;</code> tag has only one child, but it has two descendants: the <code>&lt;title&gt;</code> tag and the <code>&lt;title&gt;</code> tag’s child. The <code>BeautifulSoup</code> object only has one direct child (the <code>&lt;html&gt;</code> tag), but it has a whole lot of descendants:</p>
+<pre><code>len(list(soup.children))
+# 1
+len(list(soup.descendants))
+# 25
+</code></pre>
+
+<h2 id="string"><code>.string</code></h2>
+<p>if a tag has only one child, and that child is a NavigableString, the child is made available as <code>.string</code>:</p>
+<pre><code>title_tag.string
+# u'The Dormouse's story'
+</code></pre>
+
+<p>If a tag’s only child is another tag, and that tag has a <code>.string</code>, then the parent tag is considered to have the same <code>.string</code> as its child:</p>
+<pre><code>head_tag.contents
+# [&lt;title&gt;The Dormouse's story&lt;/title&gt;]
+
+head_tag.string
+# u'The Dormouse's story'
+</code></pre>
+
+<p>If a tag contains more than one thing, then it’s not clear what <code>.string</code> should refer to, so <code>.string</code> is defined to be <code>None</code>:</p>
+<pre><code>print(soup.html.string)
+# None
+</code></pre>
+
+<h2 id="strings-and-stripped_strings"><code>.strings</code> and <code>stripped_strings</code></h2>
+<p>If there’s more than one thing inside a tag, you can still look at just the strings. Use the <code>.strings</code> generator:</p>
+<pre><code>for string in soup.strings:
+    print(repr(string))
+# u&quot;The Dormouse's story&quot;
+# u'\n\n'
+# u&quot;The Dormouse's story&quot;
+# u'\n\n'
+# u'Once upon a time there were three little sisters; and their names were\n'
+# u'Elsie'
+# u',\n'
+# u'Lacie'
+# u' and\n'
+# u'Tillie'
+# u';\nand they lived at the bottom of a well.'
+# u'\n\n'
+# u'...'
+# u'\n'
+</code></pre>
+
+<p>These strings tend to have a lot of extra whitespace, which you can remove by using the <code>.stripped_strings</code> generator instead:</p>
+<pre><code>for string in soup.stripped_strings:
+    print(repr(string))
+# u&quot;The Dormouse's story&quot;
+# u&quot;The Dormouse's story&quot;
+# u'Once upon a time there were three little sisters; and their names were'
+# u'Elsie'
+# u','
+# u'Lacie'
+# u'and'
+# u'Tillie'
+# u';\nand they lived at the bottom of a well.'
+# u'...'
+</code></pre>
+
+<p>Here, strings consisting entirely of whitespace are ignored, and whitespace at the beginning and end of strings is removed.</p>
+<h2 id="going-up">Going up</h2>
+<p>Continuing the “family tree” analogy, every tag and every string has a parent: the tag that contains it.</p>
+<p><code>.parent</code><br/>
+<code>.parents</code></p>
+<pre><code>link = soup.a
+link
+# &lt;a class=&quot;sister&quot; href=&quot;http://example.com/elsie&quot; id=&quot;link1&quot;&gt;Elsie&lt;/a&gt;
+for parent in link.parents:
+    if parent is None:
+        print(parent)
+    else:
+        print(parent.name)
+# p
+# body
+# html
+# [document]
+# None
+</code></pre>
+
+<h2 id="going-sideways">Going sideways</h2>
+<p><code>.next_sibling</code><br/>
+<code>.previous_sibling</code></p>
+<pre><code>sibling_soup.b.next_sibling
+# &lt;c&gt;text2&lt;/c&gt;
+
+sibling_soup.c.previous_sibling
+# &lt;b&gt;text1&lt;/b&gt;
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../searching_the_tree/index.html" class="btn btn-neutral float-right" title="Searching The Tree">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../beautiful_soup_intro/index.html" class="btn btn-neutral" title="Beautiful Soup - Intro"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../beautiful_soup_intro/index.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../searching_the_tree/index.html" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../js/theme.js"></script>
+
+</body>
+</html>
